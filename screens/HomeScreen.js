@@ -8,10 +8,14 @@ const HomeScreen = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const walletBalance = await getWalletBalance();
-      const recentTransactions = await getRecentTransactions();
-      setBalance(walletBalance);
-      setTransactions(recentTransactions);
+      try {
+        const walletBalance = await getWalletBalance();
+        const recentTransactions = await getRecentTransactions();
+        setBalance(walletBalance);
+        setTransactions(recentTransactions);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchData();

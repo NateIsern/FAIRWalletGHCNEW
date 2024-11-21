@@ -7,6 +7,10 @@ import SendScreen from './screens/SendScreen';
 import ReceiveScreen from './screens/ReceiveScreen';
 import TransactionsScreen from './screens/TransactionsScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import { LogBox } from 'react-native';
+import { Buffer } from 'buffer';
+
+global.Buffer = global.Buffer || require('buffer').Buffer;
 
 const Stack = createStackNavigator();
 
@@ -21,12 +25,14 @@ const App = () => {
         await new Promise(resolve => setTimeout(resolve, 2000));
         setIsLoading(false);
       } catch (error) {
+        console.log(error);
         setHasError(true);
         setIsLoading(false);
       }
     };
 
     loadResources();
+    LogBox.ignoreAllLogs();
   }, []);
 
   if (isLoading) {

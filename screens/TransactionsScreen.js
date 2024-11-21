@@ -8,8 +8,12 @@ const TransactionsScreen = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const transactionsData = await getTransactions();
-      setTransactions(transactionsData);
+      try {
+        const transactionsData = await getTransactions();
+        setTransactions(transactionsData);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchData();

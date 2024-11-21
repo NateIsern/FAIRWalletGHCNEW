@@ -12,6 +12,7 @@ const SendScreen = () => {
       await sendBitcoin(address, amount);
       setMessage('Transaction successful!');
     } catch (error) {
+      console.log(error);
       setMessage(`Transaction failed: ${error.message}`);
     }
   };

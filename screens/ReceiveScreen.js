@@ -8,8 +8,12 @@ const ReceiveScreen = () => {
 
   useEffect(() => {
     const fetchAddress = async () => {
-      const walletAddress = await getWalletAddress();
-      setAddress(walletAddress);
+      try {
+        const walletAddress = await getWalletAddress();
+        setAddress(walletAddress);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchAddress();
