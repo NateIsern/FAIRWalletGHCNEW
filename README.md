@@ -1,2 +1,1 @@
-# FAIRWalletGHCNEW
-A crypto wallet app using React Native and bitcoinjs
+This repository is empty. Any task executed on it should be considered a new capability and needs to be created.
